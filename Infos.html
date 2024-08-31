@@ -108,35 +108,17 @@
             font-weight: bold;
         }
 
-        /* Styling for map and hover effects */
-        svg {
-            width: 100%;
+        /* Image styling */
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
             height: auto;
-            margin-top: 20px;
-            display: block;
-        }
-
-        .region {
-            fill: #888;
-            stroke: #fff;
-            stroke-width: 0.5;
-            transition: fill 0.3s;
-        }
-
-        .region:hover {
-            fill: #ffcc00;
-        }
-
-        /* Tooltip */
-        .tooltip {
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            display: none;
-            pointer-events: none;
-            font-size: 14px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
@@ -178,25 +160,9 @@
 
             <p>The <span class="highlight">top 2</span> will already start in the semifinals, while <span class="highlight">3-5</span> play against each other to determine who will start in the quarterfinals. The last 3 will have to fight their way towards the top starting at the bottom.</p>
             
-            <!-- Interactive RLCS Regions Map -->
-            <div class="map-container">
-                <h1>RLCS Regions Map</h1>
-                <p>Hover over the map to highlight the 7 RLCS regions!</p>
-                
-                <!-- SVG World Map -->
-                <svg xmlns="https://upload.wikimedia.org/wikipedia/commons/4/4d/BlankMap-World.svg" viewBox="0 0 1024 512" id="world-map">
-                    <!-- Example paths for regions (Replace with actual SVG data) -->
-                    <path class="region" id="EU" d="M290,150 L330,150 L330,200 L290,200 Z" title="EU"></path>
-                    <path class="region" id="NA" d="M150,100 L210,100 L210,160 L150,160 Z" title="NA"></path>
-                    <path class="region" id="SAM" d="M190,280 L230,280 L230,320 L190,320 Z" title="SAM"></path>
-                    <path class="region" id="OCE" d="M780,320 L820,320 L820,360 L780,360 Z" title="OCE"></path>
-                    <path class="region" id="MENA" d="M500,200 L540,200 L540,240 L500,240 Z" title="MENA"></path>
-                    <path class="region" id="APAC" d="M700,180 L740,180 L740,220 L700,220 Z" title="APAC"></path>
-                    <path class="region" id="SSA" d="M470,300 L510,300 L510,340 L470,340 Z" title="SSA"></path>
-                </svg>
-                
-                <!-- Tooltip -->
-                <div class="tooltip" id="tooltip"></div>
+            <!-- Image -->
+            <div class="image-container">
+                <img src="https://preview.redd.it/incchj5tgxv71.jpg?width=1080&crop=smart&auto=webp&s=5a1c9eeb5508f13c2d5ae9bb8455a086e8ee75fb" alt="RLCS World Map">
             </div>
         </div>
     </div>
@@ -209,25 +175,8 @@
 
         function closeSidebar() {
             document.getElementById("mySidebar").style.left = "-250px";
-            document.querySelector(".main-content").style.marginLeft= "0";
+            document.querySelector(".main-content").style.marginLeft = "50px";
         }
-
-        // Tooltip functionality
-        const regions = document.querySelectorAll('.region');
-        const tooltip = document.getElementById('tooltip');
-
-        regions.forEach(region => {
-            region.addEventListener('mousemove', (e) => {
-                tooltip.style.left = e.pageX + 'px';
-                tooltip.style.top = e.pageY + 'px';
-                tooltip.innerText = e.target.getAttribute('title');
-                tooltip.style.display = 'block';
-            });
-
-            region.addEventListener('mouseout', () => {
-                tooltip.style.display = 'none';
-            });
-        });
     </script>
 </body>
 </html>
