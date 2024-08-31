@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Happened Last Year? - RLCS Worlds Guide 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #f4f4f4;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ddd;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            margin-left: 50px;
+        }
+
+        #open-sidebar {
+            font-size: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .content-wrapper {
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="index.html">Home</a>
+        <a href="last-year.html">What happened last year?</a>
+        <a href="when-where.html">When? Where? Who? What?</a>
+        <a href="teams.html">The Teams</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <span id="open-sidebar" onclick="openSidebar()">☰ Menu</span>
+        <div class="content-wrapper">
+            <h1>What Happened Last Year?</h1>
+            <p>It has been over a year since we crowned our last world champion back in Düsseldorf. After having a disastrous year before the spring split, Team Vitality managed to snatch the prodigy Alexis "zen" Bernier away from other big French clubs.</p>
+            <p>The impact? Immediately noticeable. Along with zen, Vitality managed to win the spring split and worlds unbeaten, resulting in a 5-tournament-long win streak. But back to worlds.</p>
+            <p>In the biggest event in terms of live and online audience, the hype was immense. No disappointing games, just a bunch of passionate fans and teams creating an unbelievable atmosphere.</p>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.left = "0";
+            document.querySelector(".main-content").style.marginLeft = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.left = "-250px";
+            document.querySelector(".main-content").style.marginLeft = "50px";
+        }
+    </script>
+    
+</body>
+</html>
