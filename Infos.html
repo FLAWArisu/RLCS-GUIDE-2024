@@ -107,6 +107,36 @@
             color: #ffcc00;
             font-weight: bold;
         }
+
+        /* Styling for map and hover effects */
+        svg {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .region {
+            fill: #888;
+            stroke: #fff;
+            stroke-width: 0.5;
+            transition: fill 0.3s;
+        }
+
+        .region:hover {
+            fill: #ffcc00;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+            pointer-events: none;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -115,8 +145,8 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
         <a href="index.html">Home</a>
-        <a href="lastyear.html">What happened last year?</a>
-        <a href="infos.html">When? Where? Who? What?</a>
+        <a href="last-year.html">What happened last year?</a>
+        <a href="when-where.html">When? Where? Who? What?</a>
         <a href="teams.html">The Teams</a>
     </div>
 
@@ -146,6 +176,39 @@
             <p>All of these teams will come to the biggest stage. I mentioned a <span class="highlight">new format</span>, right? Yeah, for the first time we will see a new format being played at worlds. Starting with a “Swiss bracket,” the teams will then go into 2 separate brackets:</p>
 
             <p>The <span class="highlight">top 2</span> will already start in the semifinals, while <span class="highlight">3-5</span> play against each other to determine who will start in the quarterfinals. The last 3 will have to fight their way towards the top starting at the bottom.</p>
+            
+            <!-- Interactive RLCS Regions Map -->
+            <div class="map-container">
+                <h1>RLCS Regions Map</h1>
+                <p>Hover over the map to highlight the 7 RLCS regions!</p>
+                
+                <!-- SVG World Map -->
+                <svg viewBox="0 0 1000 500" id="world-map">
+                    <!-- EU (Europe) -->
+                    <path class="region" id="EU" d="M500,200 L550,200 L550,250 L500,250 Z" title="EU"></path>
+                    
+                    <!-- NA (North America) -->
+                    <path class="region" id="NA" d="M200,100 L300,100 L300,200 L200,200 Z" title="NA"></path>
+                    
+                    <!-- SAM (South America) -->
+                    <path class="region" id="SAM" d="M250,300 L300,300 L300,400 L250,400 Z" title="SAM"></path>
+                    
+                    <!-- OCE (Oceania) -->
+                    <path class="region" id="OCE" d="M800,400 L850,400 L850,450 L800,450 Z" title="OCE"></path>
+                    
+                    <!-- MENA (Middle East North Africa) -->
+                    <path class="region" id="MENA" d="M600,250 L650,250 L650,300 L600,300 Z" title="MENA"></path>
+                    
+                    <!-- APAC (Asia Pacific) -->
+                    <path class="region" id="APAC" d="M750,200 L800,200 L800,250 L750,250 Z" title="APAC"></path>
+                    
+                    <!-- SSA (South Sub-Saharan Africa) -->
+                    <path class="region" id="SSA" d="M600,350 L650,350 L650,400 L600,400 Z" title="SSA"></path>
+                </svg>
+                
+                <!-- Tooltip -->
+                <div class="tooltip" id="tooltip"></div>
+            </div>
         </div>
     </div>
 
@@ -159,6 +222,29 @@
             document.getElementById("mySidebar").style.left = "-250px";
             document.querySelector(".main-content").style.marginLeft = "50px";
         }
+
+        // Tooltip functionality
+        const regions = document.querySelectorAll('.region');
+        const tooltip = document.getElementById('tooltip');
+        
+        regions.forEach(region => {
+            region.addEventListener('mouseover', (e) => {
+                const regionName = region.getAttribute('title');
+                tooltip.innerHTML = regionName;
+                tooltip.style.display = 'block';
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY + 10 + 'px';
+            });
+            
+            region.addEventListener('mousemove', (e) => {
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY + 10 + 'px';
+            });
+            
+            region.addEventListener('mouseout', () => {
+                tooltip.style.display = 'none';
+            });
+        });
     </script>
     
 </body>
