@@ -5,113 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What Happened Last Year? - RLCS Worlds Guide 2024</title>
     <style>
-/* Existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #f4f4f4;
+            background: url('https://www.d-live.de/fileadmin/_processed_/3/f/csm_Header_ESLRocketLeague_kle_ed1610baea.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
 
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    background-color: #333;
-    padding-top: 20px;
-    transition: 0.3s;
-    z-index: 2;
-}
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: rgba(51, 51, 51, 0.9); /* Slight transparency */
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2;
+        }
 
-.sidebar a, .sidebar .submenu a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #ddd;
-    display: block;
-    transition: 0.3s;
-}
+        .sidebar a, .sidebar .submenu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ddd;
+            display: block;
+            transition: 0.3s;
+        }
 
-.sidebar a:hover, .sidebar .submenu a:hover {
-    background-color: #575757;
-}
+        .sidebar a:hover, .sidebar .submenu a:hover {
+            background-color: #575757;
+        }
 
-.sidebar .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    margin-left: 50px;
-}
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+        }
 
-#open-sidebar {
-    font-size: 30px;
-    margin-left: 15px;
-    cursor: pointer;
-    color: white;
-    padding: 10px;
-}
+        #open-sidebar {
+            font-size: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
 
-.main-content {
-    margin-left: 50px;
-    padding: 20px;
-    transition: margin-left 0.3s;
-}
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
 
-.content-wrapper {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 8px;
-    max-width: 900px;
-    margin: 50px auto;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-}
+        .content-wrapper {
+            padding: 20px;
+            background-color: rgba(51, 51, 51, 0.8); /* Slight transparency */
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 50px auto;
+            color: #fff;
+        }
 
-h1, h2 {
-    text-align: center;
-    color: #ffcc00;
-}
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
 
-p {
-    line-height: 1.6;
-    font-size: 18px;
-    text-align: center;
-    color: #ddd;
-}
+        p {
+            line-height: 1.6;
+            font-size: 18px;
+        }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+        /* Submenu styling */
+        .submenu {
+            padding-left: 20px;
+            background-color: rgba(51, 51, 51, 0.8); /* Slight transparency */
+        }
 
-ul li {
-    padding: 12px 20px;
-    background-color: #333;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-ul li:hover {
-    background-color: #444;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.highlight {
-    color: #ffcc00;
-    font-weight: bold;
-}
-
-/* Submenu styling */
-.submenu {
-    padding-left: 20px; /* Indent submenu items */
-    background-color: #444; /* Slightly different background for submenu */
-}
-
-.submenu a {
-    font-size: 16px; /* Slightly smaller font size */
-    color: #bbb; /* Lighter color for submenu items */
-}
-
+        .submenu a {
+            font-size: 16px;
+            color: #bbb;
+            padding-left: 30px; /* Indentation */
+        }
     </style>
 </head>
 <body>
