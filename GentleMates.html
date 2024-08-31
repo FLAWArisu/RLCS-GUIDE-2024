@@ -111,7 +111,7 @@
         }
 
         .image-container img {
-            max-width: 80%; /* Adjusted for smaller size */
+            max-width: 80%;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
@@ -143,6 +143,23 @@
 
         .achievements {
             margin-top: 20px;
+        }
+
+        .achievements .tournament {
+            margin-bottom: 20px;
+        }
+
+        .achievements h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .achievements ul {
+            padding-left: 20px;
+        }
+
+        .achievements li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -188,12 +205,25 @@
 
             <h2>Achievements</h2>
             <div class="achievements">
-                <ul>
-                    <li><span class="highlight">Spring Split Champions 2024</span></li>
-                    <li>1st Seed for EU - RLCS 2024</li>
-                    <li>Top 4 - Summer Split London 2024</li>
-                    <li>Late August EWC Tournament - Disappointing Performance</li>
-                </ul>
+                <div class="tournament">
+                    <h3>2024 RLCS Spring Split</h3>
+                    <ul>
+                        <li><span class="highlight">Champions</span> - Gentle Mates Alpine</li>
+                        <li>1st Seed for EU</li>
+                    </ul>
+                </div>
+                <div class="tournament">
+                    <h3>2024 Summer Split - London</h3>
+                    <ul>
+                        <li>Top 4 Finish</li>
+                    </ul>
+                </div>
+                <div class="tournament">
+                    <h3>August 2024 EWC Tournament</h3>
+                    <ul>
+                        <li>Disappointing Performance</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
