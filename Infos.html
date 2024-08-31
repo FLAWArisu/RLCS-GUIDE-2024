@@ -113,6 +113,7 @@
             width: 100%;
             height: auto;
             margin-top: 20px;
+            display: block;
         }
 
         .region {
@@ -183,27 +184,15 @@
                 <p>Hover over the map to highlight the 7 RLCS regions!</p>
                 
                 <!-- SVG World Map -->
-                <svg viewBox="0 0 1000 500" id="world-map">
-                    <!-- EU (Europe) -->
-                    <path class="region" id="EU" d="M500,200 L550,200 L550,250 L500,250 Z" title="EU"></path>
-                    
-                    <!-- NA (North America) -->
-                    <path class="region" id="NA" d="M200,100 L300,100 L300,200 L200,200 Z" title="NA"></path>
-                    
-                    <!-- SAM (South America) -->
-                    <path class="region" id="SAM" d="M250,300 L300,300 L300,400 L250,400 Z" title="SAM"></path>
-                    
-                    <!-- OCE (Oceania) -->
-                    <path class="region" id="OCE" d="M800,400 L850,400 L850,450 L800,450 Z" title="OCE"></path>
-                    
-                    <!-- MENA (Middle East North Africa) -->
-                    <path class="region" id="MENA" d="M600,250 L650,250 L650,300 L600,300 Z" title="MENA"></path>
-                    
-                    <!-- APAC (Asia Pacific) -->
-                    <path class="region" id="APAC" d="M750,200 L800,200 L800,250 L750,250 Z" title="APAC"></path>
-                    
-                    <!-- SSA (South Sub-Saharan Africa) -->
-                    <path class="region" id="SSA" d="M600,350 L650,350 L650,400 L600,400 Z" title="SSA"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 512" id="world-map">
+                    <!-- Example paths for regions (Replace with actual SVG data) -->
+                    <path class="region" id="EU" d="M290,150 L330,150 L330,200 L290,200 Z" title="EU"></path>
+                    <path class="region" id="NA" d="M150,100 L210,100 L210,160 L150,160 Z" title="NA"></path>
+                    <path class="region" id="SAM" d="M190,280 L230,280 L230,320 L190,320 Z" title="SAM"></path>
+                    <path class="region" id="OCE" d="M780,320 L820,320 L820,360 L780,360 Z" title="OCE"></path>
+                    <path class="region" id="MENA" d="M500,200 L540,200 L540,240 L500,240 Z" title="MENA"></path>
+                    <path class="region" id="APAC" d="M700,180 L740,180 L740,220 L700,220 Z" title="APAC"></path>
+                    <path class="region" id="SSA" d="M470,300 L510,300 L510,340 L470,340 Z" title="SSA"></path>
                 </svg>
                 
                 <!-- Tooltip -->
@@ -220,32 +209,25 @@
 
         function closeSidebar() {
             document.getElementById("mySidebar").style.left = "-250px";
-            document.querySelector(".main-content").style.marginLeft = "50px";
+            document.querySelector(".main-content").style.marginLeft= "0";
         }
 
         // Tooltip functionality
         const regions = document.querySelectorAll('.region');
         const tooltip = document.getElementById('tooltip');
-        
+
         regions.forEach(region => {
-            region.addEventListener('mouseover', (e) => {
-                const regionName = region.getAttribute('title');
-                tooltip.innerHTML = regionName;
-                tooltip.style.display = 'block';
-                tooltip.style.left = e.pageX + 10 + 'px';
-                tooltip.style.top = e.pageY + 10 + 'px';
-            });
-            
             region.addEventListener('mousemove', (e) => {
-                tooltip.style.left = e.pageX + 10 + 'px';
-                tooltip.style.top = e.pageY + 10 + 'px';
+                tooltip.style.left = e.pageX + 'px';
+                tooltip.style.top = e.pageY + 'px';
+                tooltip.innerText = e.target.getAttribute('title');
+                tooltip.style.display = 'block';
             });
-            
+
             region.addEventListener('mouseout', () => {
                 tooltip.style.display = 'none';
             });
         });
     </script>
-    
 </body>
 </html>
