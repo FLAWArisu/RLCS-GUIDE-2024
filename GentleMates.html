@@ -7,11 +7,12 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
+            background: linear-gradient(135deg, #ffe6f2, #ffccf2); /* Subtle pink gradient */
             color: white;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #111, #333);
+            background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png'); /* Adds a subtle texture */
+            background-blend-mode: overlay;
         }
 
         .sidebar {
@@ -20,7 +21,7 @@
             position: fixed;
             top: 0;
             left: -250px;
-            background-color: #333;
+            background-color: #ff66b2;
             padding-top: 20px;
             transition: 0.3s;
             z-index: 2;
@@ -30,13 +31,13 @@
             padding: 10px 15px;
             text-decoration: none;
             font-size: 18px;
-            color: #ddd;
+            color: #fff;
             display: block;
             transition: 0.3s;
         }
 
         .sidebar a:hover, .sidebar .submenu a:hover {
-            background-color: #575757;
+            background-color: #ff99cc;
         }
 
         .sidebar .close-btn {
@@ -51,7 +52,7 @@
             font-size: 30px;
             margin-left: 15px;
             cursor: pointer;
-            color: white;
+            color: #ff66b2;
             padding: 10px;
         }
 
@@ -63,22 +64,22 @@
 
         .content-wrapper {
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
             border-radius: 8px;
             max-width: 900px;
             margin: 50px auto;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         h1, h2 {
             text-align: center;
-            color: #ffcc00;
+            color: #ff66b2;
         }
 
         p, ul {
             line-height: 1.6;
             font-size: 18px;
-            color: #ddd;
+            color: #333;
         }
 
         ul {
@@ -88,7 +89,7 @@
 
         ul li {
             padding: 12px 20px;
-            background-color: #333;
+            background-color: #ff99cc;
             margin-bottom: 8px;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -96,12 +97,12 @@
         }
 
         ul li:hover {
-            background-color: #444;
+            background-color: #ff66b2;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .highlight {
-            color: #ffcc00;
+            color: #ff66b2;
             font-weight: bold;
         }
 
@@ -114,7 +115,7 @@
             max-width: 80%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .roster {
@@ -131,14 +132,14 @@
 
         .roster img {
             border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             width: 150px;
             height: 150px;
             object-fit: cover;
         }
 
         .roster h3 {
-            color: #ffcc00;
+            color: #ff66b2;
         }
 
         .achievements {
@@ -146,7 +147,7 @@
         }
 
         .achievements h2 {
-            color: #ffcc00;
+            color: #ff66b2;
             margin-bottom: 10px;
         }
 
@@ -156,7 +157,7 @@
         }
 
         .achievements table, .achievements th, .achievements td {
-            border: 1px solid #444;
+            border: 1px solid #ff99cc;
         }
 
         .achievements th, .achievements td {
@@ -165,12 +166,13 @@
         }
 
         .achievements th {
-            background-color: #333;
-            color: #ffcc00;
+            background-color: #ff66b2;
+            color: #fff;
         }
 
         .achievements td {
-            background-color: #222;
+            background-color: #fff;
+            color: #333;
         }
 
         /* Highlight classes */
@@ -221,22 +223,22 @@
                 <div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFQIam1O-X0M20_HLMh4Rz-w0S4g2rHLtmqw&s" alt="Seikoo">
                     <h3>Seikoo</h3>
-                    <p>Real Name: Axel Fouquet</p> <!-- Added Real Name -->
-                    <p>Joined: October 12, 2023</p> <!-- Added Join Date -->
+                    <p>Real Name: Axel Fouquet</p>
+                    <p>Joined: October 12, 2023</p>
                     <p>Position: Attacker</p>
                 </div>
                 <div>
                     <img src="https://www.lequipe.fr/_medias/img-photo-jpg/amine-itachi-benayachi-a-rejoint-la-karmine-corp-en-juillet-2021-joao-ferreira-psyonix/1500000001720452/166:246,1742:1297-828-552-75/3e3cc.jpg" alt="Itachi">
                     <h3>Itachi</h3>
-                    <p>Real Name: Amine Benayachi</p> <!-- Added Real Name -->
-                    <p>Joined: October 12, 2023</p> <!-- Added Join Date -->
+                    <p>Real Name: Amine Benayachi</p>
+                    <p>Joined: October 12, 2023</p>
                     <p>Position: Playmaker</p>
                 </div>
                 <div>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiIP52meXqqRtpF9kw8OBNj4tLJjicW_Q84A&s" alt="Juicy">
                     <h3>Juicy</h3>
-                    <p>Real Name: Ricardo Castillo</p> <!-- Added Real Name -->
-                    <p>Joined: October 12, 2023</p> <!-- Added Join Date -->
+                    <p>Real Name: Ricardo Castillo</p>
+                    <p>Joined: October 12, 2023</p>
                     <p>Position: Mechanical Player</p>
                 </div>
             </div>
