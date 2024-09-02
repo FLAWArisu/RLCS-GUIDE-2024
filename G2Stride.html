@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gentle Mates Alpine - RLCS 2024</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #222, #444);
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #444;
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .sidebar a, .sidebar .submenu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f0f0f0;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar .submenu a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #open-sidebar {
+            font-size: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .content-wrapper {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 50px auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ffcc33;
+        }
+
+        p, ul {
+            line-height: 1.6;
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 12px 20px;
+            background-color: #555;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        ul li:hover {
+            background-color: #666;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight {
+            color: #ffcc33;
+            font-weight: bold;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        .roster {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .roster div {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .roster img {
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .roster h3 {
+            color: #ffcc33;
+        }
+
+        .achievements {
+            margin-top: 20px;
+        }
+
+        .achievements h2 {
+            color: #ffcc33;
+            margin-bottom: 10px;
+        }
+
+        .achievements table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .achievements table, .achievements th, .achievements td {
+            border: 1px solid #555;
+        }
+
+        .achievements th, .achievements td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .achievements th {
+            background-color: #444;
+            color: #ffcc33;
+        }
+
+        .achievements td {
+            background-color: #333;
+        }
+
+        /* Highlight classes */
+        .first-place {
+            color: #ffd700; /* Gold */
+        }
+
+        .second-place {
+            color: #0033cc; /* Dark Blue */
+        }
+
+        .third-place {
+            color: #cd7f32; /* Bronze */
+        }
+
+        .fifth-to-eighth-place {
+            color: #00bfff; /* Light Blue */
+        }
+
+        .ninth-to-twelfth-place {
+            color: #1e90ff; /* Blue */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="index.html">Home</a>
+        <a href="LastYear.html">What happened last year?</a>
+        <a href="Infos.html">When? Where? Who? What?</a>
+        <a href="teams.html">The Teams</a>
+        <a href="gentle-mates-alpine.html">Gentle Mates Alpine</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <span id="open-sidebar" onclick="openSidebar()">☰ Menu</span>
+        <div class="content-wrapper">
+            
+            <!-- New G2 Stride section -->
+            <h1>G2 Stride</h1>
+            <p>We have been talking about the Spring split champions already, so let's hop on over to the current defending summer split champions. After losing the spring split in the finals, the three boys of Atomic, Beastmode, and Daniel were looking forward—no roster changes needed. With a dominant NA campaign, only placing 1st except in 1 of the 6 regionals, they were eagerly looking forward to London. And rightly so. Looking dominant all weekend, the only real team that could challenge them for the win were Gentle Mates or Falcons.</p>
+            <p>In the end, G2 had to wither down Falcons in the finals, winning without a doubt. However, at EWC, their performance faltered with their sub Nass. Now back together, they aim to win Worlds and look dominant enough to do so.</p>
+            
+            <div class="image-container">
+                <img src="https://mindblow.fr/wp-content/uploads/2023/04/GentleMates-Logo-Structure-esport-Squeezie-Gotaga-Brawks-Mindblow-Agence-Marketing-Lyon.png" alt="Gentle Mates Alpine 2024">
+            </div>
+            <h2>Active Roster</h2>
+            <div class="roster">
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFQIam1O-X0M20_HLMh4Rz-w0S4g2rHLtmqw&s" alt="Seikoo">
+                    <h3>Seikoo</h3>
+                    <p>Real Name: Axel Fouquet</p>
+                    <p>Joined: October 12, 2023</p>
+                    <p>Position: Attacker</p>
+                </div>
+                <div>
+                    <img src="https://www.lequipe.fr/_medias/img-photo-jpg/amine-itachi-benayachi-a-rejoint-la-karmine-corp-en-juillet-2021-joao-ferreira-psyonix-rocket-league-championship/1500000001675905/0:0,1998:1332-828-552-75/4e1a3.jpg" alt="Itachi">
+                    <h3>Itachi</h3>
+                    <p>Real Name: Amine Benayachi</p>
+                    <p>Joined: June 6, 2023</p>
+                    <p>Position: Defender</p>
+                </div>
+                <div>
+                    <img src="https://esportsinsider.com/wp-content/uploads/2022/10/MouiJuicy-scaled-e1666894122157.jpeg" alt="Juicy">
+                    <h3>Juicy</h3>
+                    <p>Real Name: Mouaad Anis</p>
+                    <p>Joined: November 9, 2022</p>
+                    <p>Position: Midfielder</p>
+                </div>
+            </div>
+            <!-- Achievements Section -->
+            <div class="achievements">
+                <h2>Achievements</h2>
+                <table>
+                    <tr>
+                        <th>Event</th>
+                        <th>Placement</th>
+                    </tr>
+                    <tr>
+                        <td>RLCS Spring Major 2024</td>
+                        <td class="third-place">3rd</td>
+                    </tr>
+                    <tr>
+                        <td>RLCS Winter Major 2024</td>
+                        <td class="fifth-to-eighth-place">5th - 8th</td>
+                    </tr>
+                    <tr>
+                        <td>RLCS Fall Major 2024</td>
+                        <td class="ninth-to-twelfth-place">9th - 12th</td>
+                    </tr>
+                    <tr>
+                        <td>Gamers8 2024</td>
+                        <td class="second-place">2nd</td>
+                    </tr>
+                    <tr>
+                        <td>RLCS European Invitational 2023</td>
+                        <td class="first-place">1st</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.left = "0";
+            document.querySelector('.main-content').style.marginLeft = '250px';
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.left = "-250px";
+            document.querySelector('.main-content').style.marginLeft = '50px';
+        }
+    </script>
+</body>
+</html>
