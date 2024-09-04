@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaimin Gladiators - RLCS 2024</title>
+    <title>Team BDS - RLCS 2024</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -11,7 +11,7 @@
             color: white;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #2b2b2b, #DAA520); /* Dark grey to dark green gradient */
+            background: linear-gradient(135deg, #ffffff, #f825e6);
         }
 
         .sidebar {
@@ -20,7 +20,7 @@
             position: fixed;
             top: 0;
             left: -250px;
-            background-color: #DAA520; /* Dark green for sidebar */
+            background-color: #f825e6;
             padding-top: 20px;
             transition: 0.3s;
             z-index: 2;
@@ -30,14 +30,14 @@
             padding: 10px 15px;
             text-decoration: none;
             font-size: 18px;
-            color: white; /* White text */
+            color: #ddd;
             display: block;
             transition: 0.3s;
         }
 
         .sidebar a:hover, .sidebar .submenu a:hover {
-            background-color: #dadbdb; /* Lighter green on hover */
-            color: #DAA520; /* Dark green text */
+            background-color: #ffb6c1; 
+            color: #f825e6; 
         }
 
         .sidebar .close-btn {
@@ -46,7 +46,6 @@
             right: 20px;
             font-size: 24px;
             cursor: pointer;
-            color: white; /* White for close button */
         }
 
         #open-sidebar {
@@ -65,7 +64,7 @@
 
         .content-wrapper {
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 8px;
             max-width: 900px;
             margin: 50px auto;
@@ -74,13 +73,13 @@
 
         h1, h2 {
             text-align: center;
-            color: #ffcc33; /* Gold-yellow headings */
+            color: #ffcc00;
         }
 
         p, ul {
             line-height: 1.6;
             font-size: 18px;
-            color: #ddd; /* Slightly lighter text */
+            color: #ddd;
         }
 
         ul {
@@ -90,22 +89,21 @@
 
         ul li {
             padding: 12px 20px;
-            background-color: #DAA520; /* Dark green */
+            background-color: #f825e6;
             margin-bottom: 8px;
             border-radius: 8px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: white; /* White text for list items */
         }
 
         ul li:hover {
-            background-color: #dadbdb; /* Light green on hover */
+            background-color: #444;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            color: #d3c11c; /* Dark green text on hover */
+            color: #f825e6;
         }
 
         .highlight {
-            color: #ffcc33;
+            color: #ffcc00;
             font-weight: bold;
         }
 
@@ -142,7 +140,7 @@
         }
 
         .roster h3 {
-            color: #ffcc33; /* Gold-yellow for roster headings */
+            color: #ffcc00;
         }
 
         .achievements {
@@ -150,7 +148,7 @@
         }
 
         .achievements h2 {
-            color: #ffcc33;
+            color: #ffcc00;
             margin-bottom: 10px;
         }
 
@@ -160,7 +158,7 @@
         }
 
         .achievements table, .achievements th, .achievements td {
-            border: 1px solid #555;
+            border: 1px solid #444;
         }
 
         .achievements th, .achievements td {
@@ -169,12 +167,12 @@
         }
 
         .achievements th {
-            background-color: #DAA520; /* Dark green */
-            color: white; /* White text */
+            background-color: #f825e6;
+            color: #ffcc00;
         }
 
         .achievements td {
-            background-color: #333;
+            background-color: #222;
         }
 
         /* Highlight classes */
@@ -197,7 +195,7 @@
         .ninth-to-twelfth-place {
             color: #1e90ff; /* Blue */
         }
-
+        
         .twelfth-to-fourteenth {
             color: #1b4d80; /* Blue */
         }
@@ -209,11 +207,11 @@
         .seventeenth-to-twentyfourth {
             color: #fd0202; /* Blue */
         }
-    
+
         /* Submenu styling */
         .submenu {
             padding-left: 20px;
-            background-color: #DAA520;
+            background-color: #f825e6;
         }
 
         .submenu a {
@@ -235,7 +233,7 @@
             <a href="GentleMates.html">Gentle Mates Alpine</a>
             <a href="G2Stride.html">G2 Stride</a>
             <a href="Falcons.html">Team Falcons</a>
-            <a href="Furia.html">Furia</a>
+            <a href="Furia.html">Furia Esports</a>
             <a href="PWR.html">PWR</a>
             <a href="Gladiators.html">Gladiators</a>
             <a href="Limitless.html">Limitless</a>
@@ -247,47 +245,44 @@
     <div class="main-content">
         <span id="open-sidebar" onclick="openSidebar()">☰ Menu</span>
         <div class="content-wrapper">
-            
-            <!-- New Falcons section -->
-            <h1>Gaimin Gladiators</h1>
-            <p>Lets head over to the Asia region, the most populated region in the world. Being in RLCS for almost 4 years now, the region still hasn’t seen big success. The most came last season from Elevate where they went 2/3 in group stage in the wildcard almost positively upsetting everyone. Now, a year later, their biggest rivals, Gaimin Gladiators snatched away that sole spot APAC provides. But it came at a big cost. Only having one person originally coming from the APAC region and alongside 2 imports they managed to secure their worlds spot in the last regional they played. Now, coming to worlds for the first time to the main event, and the first time in front of the crowd, they come in to impress. </p>
-            <p>But can they finally manage a miracle run, pushing their way into the first APAC top 8 or will they fall apart like the countless times before?</p>
-            
+            <h1>Team BDS</h1>
+            <p>Here we are, the first world champions of the circuit area. Always being mistaken as an French ORG, the swiss are looking for a comeback. With the new super talent, dralii on board replacing Rise after a 2nd place finish last season, this season has been filled with up and downs. There has been no real consistency, sometimes winning regionals just to get knocked out hard at top 8 the next one. The majors have been even worse. Not a single top 4 has been achieved infront of the crowd but still they held together, and rightly so. In late August during EWC, they showed their potential, finally. Winning the entire thing beating teams like Falcons along the way to secure the big pot. But can they do it at worlds too? </p>
+            <p> Can they finally break through the top 8 and show everyone what they are capable of, potentially winning worlds, or will they crumble once again under the pressure and lead into a crazy transfer off-season?</p>
             <div class="image-container">
-                <img src="images/Gladiators_2022_allmode.png" alt="Furia">
+                <img src="images/600px-Team_BDS_2021_full_allmode.png" alt="BDS">
             </div>
             <h2>Active Roster</h2>
             <div class="roster">
                 <div>
-                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_Maxeew.jpg" alt="Maxeew">
-                    <h3>Maxeew</h3>
-                    <p>Real Name: Max Ng</p>
-                    <p>Joined: February 28, 2022</p>
-                    <p>Position: Decent team player, excels at passing</p>
+                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_M0nkey_M00n.jpg" alt="M0nkey M00n">
+                    <h3>M0nkey M00n</h3>
+                    <p>Real Name: Evan Rogez</p> <!-- Added Real Name -->
+                    <p>Joined: February 03, 2020</p> <!-- Added Join Date -->
+                    <p>Position: One of the biggest brains in RL, allways finds the smartest play, Playmaker</p>
                 </div>
                 <div>
-                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_virtuoso.jpg" alt="Virtuoso">
-                    <h3>Virtuoso</h3>
-                    <p>Real Name: Nelson Lasko</p>
-                    <p>Joined: Oktober 18, 2023</p>
-                    <p>Position: Brings the EU mindset of heavy demo-play</p>
+                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_dralii.jpg" alt="dralii">
+                    <h3>dralii</h3>
+                    <p>Real Name: Samy</p> <!-- Added Real Name -->
+                    <p>Joined: October 27, 2023</p> <!-- Added Join Date -->
+                    <p>Position: Young mechanical mastermind, always full of surprises</p>
                 </div>
                 <div>
-                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_ThO.jpg" alt="Th0">
-                    <h3>Th0</h3>
-                    <p>Real Name: Thomas Binkhorst</p>
-                    <p>Joined: April 13, 2024</p>
-                    <p>Position: Complete All-Rounder but also the most mechanical</p>
+                    <img src="images/600px-RLCS_London_Major_2024_LAN_Stephanie_Lindgren_ExoTiiK.jpg" alt="ExoTiik">
+                    <h3>ExoTiik</h3>
+                    <p>Real Name: Brice Bigeard</p> <!-- Added Real Name -->
+                    <p>Joined: October 27, 2023</p> <!-- Added Join Date -->
+                    <p>Position: Always clutch when he is needed, a wall in defense</p>
                 </div>
                 <div>
-                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_Markydooda.jpg" alt="Markydooda">
-                    <h3>Markydooda</h3>
-                    <p>Real Name: Mark Exton</p>
-                    <p>Joined: January 27, 2023</p>
+                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_Kassio.jpg" alt="Kassio">
+                    <h3>Kassio</h3>
+                    <p>Real Name: Andy Landais</p> <!-- Added Real Name -->
+                    <p>Joined: October 27, 2023</p> <!-- Added Join Date -->
                     <p>Position: Coach</p>
                 </div>
             </div>
-            <!-- Achievements Section -->
+
             <h2>Achievements</h2>
             <div class="achievements">
                 <table>
@@ -302,60 +297,67 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>2024-02-04</td>
+                            <td>2024-02-11</td>
                             <td class="third-place">3rd-4th</td>
-                            <td>A-Tier - RLCS 2024 - Major 1: APAC Open Qualifier 1</td>
-                            <td>3 : 4 vs Chapati Dream</td>
-                            <td>$1,200</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: EU Open Qualifier 1</td>
+                            <td>3 : 4 vs Karmine Corp</td>
+                            <td>6,000</td>
                         </tr>
                         <tr>
-                            <td>2024-02-18</td>
-                            <td class="first-place">1st</td>
-                            <td>A-Tier - RLCS 2024 - Major 1: APAC Open Qualifier 2</td>
-                            <td>4 : 1 vs LA Signal</td>
-                            <td>$6,000</td>
-                        </tr>
-                        <tr>
-                            <td>2024-03-03</td>
+                            <td>2024-02-25</td>
                             <td class="second-place">2nd</td>
-                            <td>A-Tier - RLCS 2024 - Major 1: APAC Open Qualifier 3</td>
-                            <td>1 : 4 vs Elevate</td>
-                            <td>$2,400</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: EU Open Qualifier 2</td>
+                            <td>3 : 4 vs Karmine Corp</td>
+                            <td>$12,000</td>
                         </tr>
                         <tr>
-                            <td>2024-05-05</td>
+                            <td>2024-03-10</td>
                             <td class="second-place">2nd</td>
-                            <td>A-Tier - RLCS 2024 - Major 2: APAC Open Qualifier 4</td>
-                            <td>2 : 4 vs Elevate</td>
-                            <td>$9,900</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: EU Open Qualifier 3</td>
+                            <td>0 : 4 vs Karmine Corp</td>
+                            <td>$12,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-03-30</td>
+                            <td class="fifth-to-eighth-place">5th-8th</td>
+                            <td>S-Tier - RLCS 2024 - Major 1: Copenhagen</td>
+                            <td>2 : 4 vs G2 Stride</td>
+                            <td>$12,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-05-04</td>
+                            <td class="fifth-to-eighth-place">5th-8th</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: EU Open Qualifier 4</td>
+                            <td>3 : 4 vs Resolve</td>
+                            <td>$3,000</td>
                         </tr>
                         <tr>
                             <td>2024-05-19</td>
-                            <td class="first-place">1st</td>
-                            <td>A-Tier - RLCS 2024 - Major 2: APAC Open Qualifier 5</td>
-                            <td>4 : 2 vs Elevate</td>
-                            <td>$6,000</td>
+                            <td class="first">1st</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: EU Open Qualifier 5</td>
+                            <td>4 : 1 vs Oxygen Esports</td>
+                            <td>$12,000</td>
                         </tr>
                         <tr>
                             <td>2024-06-02</td>
-                            <td class="first-place">1st</td>
-                            <td>A-Tier - RLCS 2024 - Major 2: APAC Open Qualifier 6</td>
-                            <td>4 : 0 vs Elevate</td>
-                            <td>$6,000</td>
+                            <td class="first">5th - 8th</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: EU Open Qualifier 6</td>
+                            <td>4 : 3 vs Luna Galaxy</td>
+                            <td>$12,000</td>
                         </tr>
                         <tr>
-                            <td>2024-06-23</td>
-                            <td class ="twelfth-to-fourteenth">12th-14th</td>
+                            <td>2024-06-22</td>
+                            <td class ="fifth-to-eighth-place">5th-8th</td>
                             <td>S-Tier - RLCS 2024 - Major 2: London</td>
-                            <td>1/3 Group Stage</td>
-                            <td>$3,600</td>
+                            <td>0 : 4 vs Gentle Mates</td>
+                            <td>$12,000</td>
                         </tr>
                         <tr>
-                            <td>2024-08-24</td>
-                            <td class="fifteenth-to-sixteenth">13th-16th</td>
+                            <td>2024-08-25</td>
+                            <td class="first-place">1st</td>
                             <td>S-Tier - Esports World Cup 2024</td>
-                            <td>0 : 3 vs Gentle Mates</td>
-                            <td>$5,000</td>
+                            <td>4 : 2 vs Falcons</td>
+                            <td>$200,000</td>
                         </tr>
                     </tbody>
                 </table>
@@ -363,10 +365,10 @@
             <div class="predicted-finish">
                 <h2>Predicted Finish</h2>
                 <ul>
-                    <li>Arisu:</span><span class="fifteenth-to-sixteenth"> 15th-16th</span></li>
-                    <li>Joyo:<span class="fifteenth-to-sixteenth"> 15th-16th</span></li>
-                    <li>Oski:<span class="fifteenth-to-sixteenth"> 15th-16th</span></li>
-                    <li>Archie:<span class="fifteenth-to-sixteenth"> 15th-16th</span></li>
+                    <li>Arisu:</span><span class="fifth-to-eighth-place"> 5th-8th</span></li>
+                    <li>Joyo:<span class="fifth-to-eighth-place"> 5th-8th</span></li>
+                    <li>Oski:<span class="third-place"> 3rd - 4th</span></li>
+                    <li>Archie:<span class="second-place"> 2nd</span></li>
                 </ul>
             </div>
         </div>
@@ -375,12 +377,12 @@
     <script>
         function openSidebar() {
             document.getElementById("mySidebar").style.left = "0";
-            document.querySelector('.main-content').style.marginLeft = '250px';
+            document.querySelector(".main-content").style.marginLeft = "250px";
         }
 
         function closeSidebar() {
             document.getElementById("mySidebar").style.left = "-250px";
-            document.querySelector('.main-content').style.marginLeft = '50px';
+            document.querySelector(".main-content").style.marginLeft = "50px";
         }
     </script>
 </body>
