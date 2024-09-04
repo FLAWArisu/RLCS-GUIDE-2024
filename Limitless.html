@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limitless - RLCS 2024</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2b2b2b, #dadbdb); /* Dark grey to dark green gradient */
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #000000; /* Dark green for sidebar */
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .sidebar a, .sidebar .submenu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white; /* White text */
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar .submenu a:hover {
+            background-color: #dadbdb; /* Lighter green on hover */
+            color: #000000; /* Dark green text */
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white; /* White for close button */
+        }
+
+        #open-sidebar {
+            font-size: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .content-wrapper {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 50px auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ffcc33; /* Gold-yellow headings */
+        }
+
+        p, ul {
+            line-height: 1.6;
+            font-size: 18px;
+            color: #ddd; /* Slightly lighter text */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 12px 20px;
+            background-color: #000000; /* Dark green */
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white; /* White text for list items */
+        }
+
+        ul li:hover {
+            background-color: #dadbdb; /* Light green on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: #000000; /* Dark green text on hover */
+        }
+
+        .highlight {
+            color: #ffcc33;
+            font-weight: bold;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        .roster {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .roster div {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .roster img {
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .roster h3 {
+            color: #ffcc33; /* Gold-yellow for roster headings */
+        }
+
+        .achievements {
+            margin-top: 20px;
+        }
+
+        .achievements h2 {
+            color: #ffcc33;
+            margin-bottom: 10px;
+        }
+
+        .achievements table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .achievements table, .achievements th, .achievements td {
+            border: 1px solid #555;
+        }
+
+        .achievements th, .achievements td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .achievements th {
+            background-color: #000000; /* Dark green */
+            color: white; /* White text */
+        }
+
+        .achievements td {
+            background-color: #333;
+        }
+
+        /* Highlight classes */
+        .first-place {
+            color: #ffd700; /* Gold */
+        }
+
+        .second-place {
+            color: #0033cc; /* Dark Blue */
+        }
+
+        .third-place {
+            color: #cd7f32; /* Bronze */
+        }
+
+        .fifth-to-eighth-place {
+            color: #00bfff; /* Light Blue */
+        }
+
+        .ninth-to-twelfth-place {
+            color: #1e90ff; /* Blue */
+        }
+    
+        /* Submenu styling */
+        .submenu {
+            padding-left: 20px;
+            background-color: #000000;
+        }
+
+        .submenu a {
+            font-size: 16px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="index.html">Home</a>
+        <a href="LastYear.html">What happened last year?</a>
+        <a href="Infos.html">When? Where? Who? What?</a>
+        <a href="">The Teams</a>
+        <div class="submenu">
+            <a href="GentleMates.html">Gentle Mates Alpine</a>
+            <a href="G2Stride.html">G2 Stride</a>
+            <a href="Falcons.html">Team Falcons</a>
+            <a href="Furia.html">Furia</a>
+            <a href="PWR.html">PWR</a>
+            <a href="Gladiators.html">Gladiators</a>
+            <a href="Limitless.html">Limitless</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <span id="open-sidebar" onclick="openSidebar()">☰ Menu</span>
+        <div class="content-wrapper">
+            
+            <!-- New Falcons section -->
+            <h1>Furia Esports</h1>
+            <p>Now over to our newest and, surprisingly most discussed reason. Why is that? Well Rocket League hasn’t managed to introduced a community wanted 2/3 rule. What’s that?  We want to enforce that 2/3rds of the roster have to be from the region they play in. Since that isn’t the case, EU has managed to invade the SSA region which led to many controversies. Luckily in the end, we got a proper SSA team at LAN. Limitless have always been the top dogs of SSA, never really being challenged for that LAN spot. Sadly due to South African energy saving, the pros aren’t really able to consistently improve and play other high level player due to the region being new. Nethertheless, SSA always came to LAN to proof themselves. Limitless, being it most of the time, have shown that they always strive to improve but sadly have always fallen short, never managing to win a single series in the main event. </p>
+            <p>Can this time be a different scenario? Can Limitless finally clutch that one series win they always have been after or can they even try to achieve more?</p>
+            
+            <div class="image-container">
+                <img src="images/600px-Limitless_2022_full_darkmode.png" alt="Limitless">
+            </div>
+            <h2>Active Roster</h2>
+            <div class="roster">
+                <div>
+                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_2Die4.jpg" alt="2Die4">
+                    <h3>2Die4</h3>
+                    <p>Real Name: David Morgenrood</p>
+                    <p>Joined: November 07, 2022</p>
+                    <p>Position: Sets his teammates in scene for the clips, selfless</p>
+                </div>
+                <div>
+                    <img src="images/600px-Esports_World_Cup_2024_RL_David_Patlut_Snowyy.jpg" alt="Snowyy">
+                    <h3>Snowyy</h3>
+                    <p>Real Name: Gareth Spiers</p>
+                    <p>Joined: November 07, 2022</p>
+                    <p>Position: Veteran who keeps on pushing</p>
+                </div>
+                <div>
+                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_Sweaty.jpg" alt="Sweaty">
+                    <h3>Sweaty</h3>
+                    <p>Real Name: Joshua Kleynhans</p>
+                    <p>Joined: January 24, 2024</p>
+                    <p>Position: One of the best mechanical players of SSA</p>
+                </div>
+                <div>
+                    <img src="images/600px-Esports_World_Cup_2024_RL_João_Ferreira_Noxes.jpg" alt="Noxes">
+                    <h3>Noxes</h3>
+                    <p>Real Name: Aaron Cadiz</p>
+                    <p>Joined: November 07, 2022</p>
+                    <p>Position: Coach</p>
+                </div>
+            </div>
+            <!-- Achievements Section -->
+            <h2>Achievements</h2>
+            <div class="achievements">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Place</th>
+                            <th>Tournament</th>
+                            <th>Result</th>
+                            <th>Prize Money</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-02-04</td>
+                            <td class="second-place">2nd</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: SSA Open Qualifier 1</td>
+                            <td>4 : 0 vs Young Money Clan</td>
+                            <td>$6,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-02-18</td>
+                            <td class="first-place">1st</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: SSA Open Qualifier 2</td>
+                            <td>4 : 1 vs Young Money Clan</td>
+                            <td>$6,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-03-03</td>
+                            <td class="first-place">1st</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: SSA Open Qualifier 3</td>
+                            <td>4 : 1 vs Astronic Esports</td>
+                            <td>$6,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-03-29</td>
+                            <td class="fifteenth-to-sixteenth">15th-16th</td>
+                            <td>S-Tier - RLCS 2024 - Major 1: Copenhagen</td>
+                            <td>1 : 4 vs Team Vitality</td>
+                            <td>$2,100</td>
+                        </tr>
+                        <tr>
+                            <td>2024-04-27</td>
+                            <td class="fifth-to-eighth-place">5th-8th</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: SSA Open Qualifier 4</td>
+                            <td>3 : 4 vs Drama Queens</td>
+                            <td>$900</td>
+                        </tr>
+                        <tr>
+                            <td>2024-05-12</td>
+                            <td class="second-place">2nd</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: SSA Open Qualifier 5</td>
+                            <td>2 : 4 vs Team Mobula</td>
+                            <td>$2,400</td>
+                        </tr>
+                        <tr>
+                            <td>2024-05-26</td>
+                            <td class="second-place">2nd</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: SSA Open Qualifier 6</td>
+                            <td>1 : 4 vs Team Mobula</td>
+                            <td>$2,400</td>
+                        </tr>
+                        <tr>
+                            <td>2024-08-25</td>
+                            <td class="fifteenth-to-sixteenth">13th-16th</td>
+                            <td>S-Tier - Esports World Cup 2024</td>
+                            <td>0 : 3 vs PWR</td>
+                            <td>$5,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="predicted-finish">
+                <h2>Predicted Finish</h2>
+                <ul>
+                    <li>Arisu:</span><span class="fifteenth-to-sixteenth"> 15th - 16th</span></li>
+                    <li>Joyo:<span class="fifteenth-to-sixteenth"> 15th - 16th</span></li>
+                    <li>Oski:<span class="fifteenth-to-sixteenth"> 15th - 16th</span></li>
+                    <li>Archie:<span class="fifteenth-to-sixteenth"> 15th - 16th</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.left = "0";
+            document.querySelector('.main-content').style.marginLeft = '250px';
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.left = "-250px";
+            document.querySelector('.main-content').style.marginLeft = '50px';
+        }
+    </script>
+</body>
+</html>
