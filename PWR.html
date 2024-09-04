@@ -1,1 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furia Esports - RLCS 2024</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2b2b2b, #ffe600); /* Dark grey to dark green gradient */
+        }
 
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #d3c11c; /* Dark green for sidebar */
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .sidebar a, .sidebar .submenu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white; /* White text */
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar .submenu a:hover {
+            background-color: #dadbdb; /* Lighter green on hover */
+            color: #d3c11c; /* Dark green text */
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white; /* White for close button */
+        }
+
+        #open-sidebar {
+            font-size: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .content-wrapper {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 50px auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ffcc33; /* Gold-yellow headings */
+        }
+
+        p, ul {
+            line-height: 1.6;
+            font-size: 18px;
+            color: #ddd; /* Slightly lighter text */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 12px 20px;
+            background-color: #d3c11c; /* Dark green */
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white; /* White text for list items */
+        }
+
+        ul li:hover {
+            background-color: #dadbdb; /* Light green on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: #d3c11c; /* Dark green text on hover */
+        }
+
+        .highlight {
+            color: #ffcc33;
+            font-weight: bold;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        .roster {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .roster div {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .roster img {
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .roster h3 {
+            color: #ffcc33; /* Gold-yellow for roster headings */
+        }
+
+        .achievements {
+            margin-top: 20px;
+        }
+
+        .achievements h2 {
+            color: #ffcc33;
+            margin-bottom: 10px;
+        }
+
+        .achievements table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .achievements table, .achievements th, .achievements td {
+            border: 1px solid #555;
+        }
+
+        .achievements th, .achievements td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .achievements th {
+            background-color: #d3c11c; /* Dark green */
+            color: white; /* White text */
+        }
+
+        .achievements td {
+            background-color: #333;
+        }
+
+        /* Highlight classes */
+        .first-place {
+            color: #ffd700; /* Gold */
+        }
+
+        .second-place {
+            color: #0033cc; /* Dark Blue */
+        }
+
+        .third-place {
+            color: #cd7f32; /* Bronze */
+        }
+
+        .fifth-to-eighth-place {
+            color: #00bfff; /* Light Blue */
+        }
+
+        .ninth-to-twelfth-place {
+            color: #1e90ff; /* Blue */
+        }
+    
+        /* Submenu styling */
+        .submenu {
+            padding-left: 20px;
+            background-color: #d3c11c;
+        }
+
+        .submenu a {
+            font-size: 16px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="index.html">Home</a>
+        <a href="LastYear.html">What happened last year?</a>
+        <a href="Infos.html">When? Where? Who? What?</a>
+        <a href="">The Teams</a>
+        <div class="submenu">
+            <a href="GentleMates.html">Gentle Mates Alpine</a>
+            <a href="G2Stride.html">G2 Stride</a>
+            <a href="Falcons.html">Team Falcons</a>
+            <a href="Furia.html">Furia</a>
+            <a href="PWR.html">PWR</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <span id="open-sidebar" onclick="openSidebar()">☰ Menu</span>
+        <div class="content-wrapper">
+            
+            <!-- New Falcons section -->
+            <h1>Furia Esports</h1>
+            <p>Oh OCE, the longest region that has been added after the two OG regions of NA and EU. After SAM and MENA, other exciting regions have been added way later and sharing their success greatly so far, OCE hasn’t been the same since season 6, where Chiefs Esports managed to place an astonishing 4th place. Since then OCE teams have struggled to even get close to the top 8. But not this season, PWR managed to build a super-team roster from the crème de la crème from the OCE region and has been quite impressive so far. In the probably most hardest season to get a top 8 so far, they have shown immaculate potential. Two times being so close going out in Swiss stage 2-3 have only given them a 9th-12th finish. With an unchanged roster throughout the season, they managed to “conquer” their region, almost doubling the points of the 2nd placed team. </p>
+            <p>Now coming in after probably fighting kangaroos and snakes since the last major, they seem ready to finally break the OCE curse and show once again that they can be equals to at least SAM and MENA, if not even more.</p>
+            
+            <div class="image-container">
+                <img src="images/600px-FURIA_Esports_full_darkmode.png" alt="Furia">
+            </div>
+            <h2>Active Roster</h2>
+            <div class="roster">
+                <div>
+                    <img src="images/600px-RLCS_London_Major_2024_LAN_Michal_Konkol_yANXNZ.jpg" alt="yan">
+                    <h3>yanxnz</h3>
+                    <p>Real Name: Yan Xisto Nolasco</p>
+                    <p>Joined: August 17, 2021</p>
+                    <p>Position: Unpredictable at times, a true speed demon chasing you to the end of the world</p>
+                </div>
+                <div>
+                    <img src="images/600px-RLCS_London_Major_2024_LAN_Stephanie_Lindgren_Lostt.jpg" alt="Lostt">
+                    <h3>Lostt</h3>
+                    <p>Real Name: Gabriel Buzon</p>
+                    <p>Joined: January 18, 2023</p>
+                    <p>Position: Seems to be quite all game, but the defense speaks for itself</p>
+                </div>
+                <div>
+                    <img src="images/600px-RLCS_London_Major_2024_LAN_Michal_Konkol_DRUFINHO.jpg" alt="drufinho">
+                    <h3>drufinho</h3>
+                    <p>Real Name: Arthur Langsch Miguel</p>
+                    <p>Joined: Oktober 06, 2023</p>
+                    <p>Position: Quick Thinker, Plays Dirty if needed, mechanical gifted</p>
+                </div>
+                <div>
+                    <img src="images/600px-RLCS_London_Major_2024_LAN_Stephanie_Lindgren_STL.jpg" alt="STL">
+                    <h3>STL</h3>
+                    <p>Real Name: Mateus Santos</p>
+                    <p>Joined: March 23, 2021</p>
+                    <p>Position: Coach</p>
+                </div>
+            </div>
+            <!-- Achievements Section -->
+            <h2>Achievements</h2>
+            <div class="achievements">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Place</th>
+                            <th>Tournament</th>
+                            <th>Result</th>
+                            <th>Prize Money</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-02-04</td>
+                            <td class="second-place">2nd</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: SAM Open Qualifier 1</td>
+                            <td>0 : 4 vs Complexity Gaming</td>
+                            <td>$6,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-02-18</td>
+                            <td class="first-place">1st</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: SAM Open Qualifier 2</td>
+                            <td>4 : 1 vs NIP</td>
+                            <td>$9,900</td>
+                        </tr>
+                        <tr>
+                            <td>2024-03-03</td>
+                            <td class="first-place">1st</td>
+                            <td>A-Tier - RLCS 2024 - Major 1: SAM Open Qualifier 3</td>
+                            <td>4 : 2 vs Complexity Gaming</td>
+                            <td>$9,900</td>
+                        </tr>
+                        <tr>
+                            <td>2024-03-30</td>
+                            <td class="fifth-to-eighth-place">5th-8th</td>
+                            <td>S-Tier - RLCS 2024 - Major 1: Copenhagen</td>
+                            <td>1 : 4 vs Team Vitality</td>
+                            <td>$12,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-04-28</td>
+                            <td class="first-place">1st</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: SAM Open Qualifier 4</td>
+                            <td>4 : 1 vs Team Secret</td>
+                            <td>$9,900</td>
+                        </tr>
+                        <tr>
+                            <td>2024-05-12</td>
+                            <td class="second-place">2nd</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: SAM Open Qualifier 5</td>
+                            <td>1 : 4 vs NIP</td>
+                            <td>$6,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-05-26</td>
+                            <td class="third-place">3rd-4th</td>
+                            <td>A-Tier - RLCS 2024 - Major 2: SAM Open Qualifier 6</td>
+                            <td>3 : 4 vs Erased</td>
+                            <td>$3,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-06-23</td>
+                            <td class ="third-place">3rd-4th</td>
+                            <td>S-Tier - RLCS 2024 - Major 2: London</td>
+                            <td>2 : 4 vs G2 Stride</td>
+                            <td>$27,000</td>
+                        </tr>
+                        <tr>
+                            <td>2024-08-25</td>
+                            <td class="fifth-to-eighth-place">5th-8th</td>
+                            <td>S-Tier - Esports World Cup 2024</td>
+                            <td>0 : 4 vs Team Falcons</td>
+                            <td>$20,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="predicted-finish">
+                <h2>Predicted Finish</h2>
+                <ul>
+                    <li>Arisu:</span><span class="third-place"> 3rd - 4th</span></li>
+                    <li>Joyo:<span class="third-place"> 3rd - 4th</span></li>
+                    <li>Oski:<span class="fifth-to-eighth-place"> 5th - 8th</span></li>
+                    <li>Archie:<span class="fifth-to-eighth-place"> 5th - 8th</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.left = "0";
+            document.querySelector('.main-content').style.marginLeft = '250px';
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.left = "-250px";
+            document.querySelector('.main-content').style.marginLeft = '50px';
+        }
+    </script>
+</body>
+</html>
