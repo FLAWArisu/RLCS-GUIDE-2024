@@ -14,6 +14,68 @@
             background: linear-gradient(135deg, #2b2b2b, #dadbdb); /* Dark grey to dark green gradient */
         }
 
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #000000; /* Dark green for sidebar */
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .sidebar a, .sidebar .submenu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white; /* White text */
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar .submenu a:hover {
+            background-color: #dadbdb; /* Lighter green on hover */
+            color: #000000; /* Dark green text */
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white; /* White for close button */
+        }
+
+        #open-sidebar {
+            font-size: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        /* Sidebar submenu styling */
+        .submenu {
+            padding-left: 20px;
+            background-color: #000000;
+        }
+
+        .submenu a {
+            font-size: 16px;
+            color: #bbb;
+        }
+
+        /* Image and Link styling */
         .image-container {
             text-align: center;
             margin: 30px 0;
@@ -26,22 +88,21 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
         }
 
-        /* Link styling */
         .link-container {
-            text-align: center; /* Center the link */
+            text-align: center;
             margin-top: 20px;
         }
 
         .link-container a {
-            font-size: 24px; /* Increase font size */
+            font-size: 24px;
             text-decoration: none;
-            color: #ffcc33; /* Gold-yellow color for the link */
+            color: #ffcc33; /* Gold-yellow */
             font-weight: bold;
             transition: color 0.3s;
         }
 
         .link-container a:hover {
-            color: #ffffff; /* Change to white on hover */
+            color: #ffffff;
         }
 
         h1, h2 {
@@ -51,15 +112,53 @@
     </style>
 </head>
 <body>
-    <h1>Predictions</h1>
-    <p>Well, how about doing some predictions to finish it off in style? Here is a Spreadsheet to predict with!</p>
-    
-    <div class="image-container">
-        <img src="images/Predictions.png" alt="GenG">
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="index.html">Home</a>
+        <a href="LastYear.html">What happened last year?</a>
+        <a href="Infos.html">When? Where? Who? What?</a>
+        <a href="#">The Teams</a>
+        <div class="submenu">
+            <a href="GentleMates.html">Gentle Mates Alpine</a>
+            <a href="G2Stride.html">G2 Stride</a>
+            <a href="Falcons.html">Team Falcons</a>
+            <a href="Furia.html">Furia</a>
+            <a href="PWR.html">PWR</a>
+            <a href="Gladiators.html">Gladiators</a>
+            <a href="Limitless.html">Limitless</a>
+            <a href="BDS.html">Team BDS</a>
+            <a href="GenG.html">Gen.G</a>
+        </div>
     </div>
-    
-    <div class="link-container">
-        <a href="https://docs.google.com/spreadsheets/d/14LM1qEzCeYcCS5J55FGjNnh6--NoIBZpSPjPW9C4Gtk/edit?gid=0#gid=0">Go to the Prediction Spreadsheet</a>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <span id="open-sidebar" onclick="openSidebar()">☰ Menu</span>
+        <h1>Predictions</h1>
+        <p>Well, how about doing some predictions to finish it off in style? Here is a Spreadsheet to predict with!</p>
+
+        <div class="image-container">
+            <img src="images/Predictions.png" alt="GenG">
+        </div>
+
+        <div class="link-container">
+            <a href="https://docs.google.com/spreadsheets/d/14LM1qEzCeYcCS5J55FGjNnh6--NoIBZpSPjPW9C4Gtk/edit?gid=0#gid=0">Go to the Prediction Spreadsheet</a>
+        </div>
     </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.left = "0";
+            document.querySelector('.main-content').style.marginLeft = '250px';
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.left = "-250px";
+            document.querySelector('.main-content').style.marginLeft = '50px';
+        }
+    </script>
+
 </body>
 </html>
