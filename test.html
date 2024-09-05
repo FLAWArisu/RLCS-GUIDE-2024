@@ -3,169 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament Prediction</title>
+    <title>Furia Esports - RLCS 2024</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2b2b2b, #dadbdb); /* Dark grey to dark green gradient */
         }
-        .bracket {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #000000; /* Dark green for sidebar */
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .sidebar a, .sidebar .submenu a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white; /* White text */
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar .submenu a:hover {
+            background-color: #dadbdb; /* Lighter green on hover */
+            color: #000000; /* Dark green text */
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white; /* White for close button */
+        }
+
+        #open-sidebar {
+            font-size: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+        }
+
+        .main-content {
+            margin-left: 50px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .content-wrapper {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            max-width: 900px;
+            margin: 50px auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ffcc33; /* Gold-yellow headings */
+        }
+
+        p, ul {
+            line-height: 1.6;
+            font-size: 18px;
+            color: #ddd; /* Slightly lighter text */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 12px 20px;
+            background-color: #000000; /* Dark green */
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white; /* White text for list items */
+        }
+
+        ul li:hover {
+            background-color: #dadbdb; /* Light green on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: #000000; /* Dark green text on hover */
+        }
+
+        .highlight {
+            color: #ffcc33;
+            font-weight: bold;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        .roster {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             text-align: center;
         }
-        .round {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .matchup {
+
+        .roster div {
+            margin: 10px;
             padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
         }
-        .matchup span {
-            display: block;
-            margin-bottom: 5px;
+
+        .roster img {
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
         }
-        table {
-            width: 100%;
+
+        .roster h3 {
+            color: #ffcc33; /* Gold-yellow for roster headings */
+        }
+
+        .achievements {
             margin-top: 20px;
+        }
+
+        .achievements h2 {
+            color: #ffcc33;
+            margin-bottom: 10px;
+        }
+
+        .achievements table {
+            width: 100%;
             border-collapse: collapse;
         }
-        td, th {
+
+        .achievements table, .achievements th, .achievements td {
+            border: 1px solid #555;
+        }
+
+        .achievements th, .achievements td {
             padding: 10px;
-            border: 1px solid #ccc;
             text-align: center;
         }
-        button {
-            margin-top: 5px;
+
+        .achievements th {
+            background-color: #000000; /* Dark green */
+            color: white; /* White text */
+        }
+
+        .achievements td {
+            background-color: #333;
+        }
+
+        /* Highlight classes */
+        .first-place {
+            color: #ffd700; /* Gold */
+        }
+
+        .second-place {
+            color: #0033cc; /* Dark Blue */
+        }
+
+        .third-place {
+            color: #cd7f32; /* Bronze */
+        }
+
+        .fifth-to-eighth-place {
+            color: #00bfff; /* Light Blue */
+        }
+
+        .ninth-to-twelfth-place {
+            color: #1e90ff; /* Blue */
+        }
+        
+        .twelfth-to-fourteenth {
+            color: #1b4d80; /* Blue */
+        }
+
+        .fifteenth-to-sixteenth {
+            color: #0d2842; /* Blue */
+        }
+
+        .seventeenth-to-twentyfourth {
+            color: #fd0202; /* Blue */
+        }
+    
+        /* Submenu styling */
+        .submenu {
+            padding-left: 20px;
+            background-color: #000000;
+        }
+
+        .submenu a {
+            font-size: 16px;
+            color: #bbb;
         }
     </style>
 </head>
 <body>
-
-    <h1>Tournament Bracket</h1>
-
-    <!-- Tournament Bracket -->
-    <div class="bracket">
-        <!-- Round 1 -->
-        <div class="round" id="round1">
-            <div class="matchup">
-                <span>Team A vs Team B</span>
-                <button onclick="setWinner('team1', 'Team A')">Team A</button>
-                <button onclick="setWinner('team1', 'Team B')">Team B</button>
-            </div>
-            <div class="matchup">
-                <span>Team C vs Team D</span>
-                <button onclick="setWinner('team2', 'Team C')">Team C</button>
-                <button onclick="setWinner('team2', 'Team D')">Team D</button>
-            </div>
-            <div class="matchup">
-                <span>Team E vs Team F</span>
-                <button onclick="setWinner('team3', 'Team E')">Team E</button>
-                <button onclick="setWinner('team3', 'Team F')">Team F</button>
-            </div>
-            <div class="matchup">
-                <span>Team G vs Team H</span>
-                <button onclick="setWinner('team4', 'Team G')">Team G</button>
-                <button onclick="setWinner('team4', 'Team H')">Team H</button>
-            </div>
-        </div>
-
-        <!-- Round 2 -->
-        <div class="round" id="round2">
-            <div class="matchup">
-                <span id="team1">Winner of Match 1</span>
-                <br>vs<br>
-                <span id="team2">Winner of Match 2</span>
-            </div>
-            <div class="matchup">
-                <span id="team3">Winner of Match 3</span>
-                <br>vs<br>
-                <span id="team4">Winner of Match 4</span>
-            </div>
-        </div>
-
-        <!-- Round 3 -->
-        <div class="round" id="round3">
-            <div class="matchup">
-                <span id="team5">Winner of Match 5</span>
-                <br>vs<br>
-                <span id="team6">Winner of Match 6</span>
-            </div>
-        </div>
-
-        <!-- Final -->
-        <div class="round" id="final">
-            <div class="matchup">
-                <span id="champion">Champion</span>
-            </div>
-        </div>
+    <p>Well, how about to do some predictions to finish it off in style? Here is a Spreadsheet to predict with!</p>
+    <div class="image-container">
+        <img src="images/Predictions.png" alt="GenG">
     </div>
-
-    <!-- Results Table -->
-    <h2>Results</h2>
-    <table id="resultsTable">
-        <thead>
-            <tr>
-                <th>Round</th>
-                <th>Match</th>
-                <th>Winner</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-    <script>
-        let roundWinners = {}; // Store winners by round
-        let matchCounter = 1;  // Counter to identify matches
-
-        function setWinner(roundId, winner) {
-            // Set the winner in the current match
-            document.getElementById(roundId).innerText = winner;
-
-            // Store the winner in the roundWinners object
-            roundWinners[roundId] = winner;
-
-            // Check if we should advance to the next round
-            if (roundId === 'team1' || roundId === 'team2') {
-                if (roundWinners['team1'] && roundWinners['team2']) {
-                    setWinner('team5', roundWinners['team1'] + ' vs ' + roundWinners['team2']);
-                }
-            }
-            if (roundId === 'team3' || roundId === 'team4') {
-                if (roundWinners['team3'] && roundWinners['team4']) {
-                    setWinner('team6', roundWinners['team3'] + ' vs ' + roundWinners['team4']);
-                }
-            }
-
-            if (roundId === 'team5' || roundId === 'team6') {
-                if (roundWinners['team5'] && roundWinners['team6']) {
-                    setWinner('champion', roundWinners['team5'] + ' vs ' + roundWinners['team6']);
-                }
-            }
-
-            // Update the results table
-            updateResultsTable();
-        }
-
-        function updateResultsTable() {
-            const tableBody = document.querySelector("#resultsTable tbody");
-            tableBody.innerHTML = ''; // Clear previous entries
-
-            Object.keys(roundWinners).forEach((roundId, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${Math.ceil((index + 1) / 2)}</td>
-                    <td>Match ${matchCounter++}</td>
-                    <td>${roundWinners[roundId]}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-    </script>
-
-</body>
-</html>
+    <a href="https://docs.google.com/spreadsheets/d/14LM1qEzCeYcCS5J55FGjNnh6--NoIBZpSPjPW9C4Gtk/edit?gid=0#gid=0">Spreadsheet</a>
+    
