@@ -7,17 +7,27 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            padding: 20px;
         }
         .bracket {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             text-align: center;
+        }
+        .round {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         .matchup {
             padding: 10px;
             border: 1px solid #ccc;
             background-color: #f9f9f9;
+        }
+        .matchup span {
+            display: block;
+            margin-bottom: 5px;
         }
         table {
             width: 100%;
@@ -29,32 +39,69 @@
             border: 1px solid #ccc;
             text-align: center;
         }
+        button {
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Tournament Prediction</h1>
+    <h1>Tournament Bracket</h1>
 
-    <!-- Bracket layout -->
+    <!-- Tournament Bracket -->
     <div class="bracket">
         <!-- Round 1 -->
-        <div class="round1 matchup">
-            <h3>Round 1: Match 1</h3>
-            <button onclick="setWinner('team1', 'teamA', 'teamB')">Team A</button>
-            <button onclick="setWinner('team1', 'teamB', 'teamA')">Team B</button>
-        </div>
-        <div class="round1 matchup">
-            <h3>Round 1: Match 2</h3>
-            <button onclick="setWinner('team2', 'teamC', 'teamD')">Team C</button>
-            <button onclick="setWinner('team2', 'teamD', 'teamC')">Team D</button>
+        <div class="round" id="round1">
+            <div class="matchup">
+                <span>Team A vs Team B</span>
+                <button onclick="setWinner('team1', 'Team A')">Team A</button>
+                <button onclick="setWinner('team1', 'Team B')">Team B</button>
+            </div>
+            <div class="matchup">
+                <span>Team C vs Team D</span>
+                <button onclick="setWinner('team2', 'Team C')">Team C</button>
+                <button onclick="setWinner('team2', 'Team D')">Team D</button>
+            </div>
+            <div class="matchup">
+                <span>Team E vs Team F</span>
+                <button onclick="setWinner('team3', 'Team E')">Team E</button>
+                <button onclick="setWinner('team3', 'Team F')">Team F</button>
+            </div>
+            <div class="matchup">
+                <span>Team G vs Team H</span>
+                <button onclick="setWinner('team4', 'Team G')">Team G</button>
+                <button onclick="setWinner('team4', 'Team H')">Team H</button>
+            </div>
         </div>
 
         <!-- Round 2 -->
-        <div class="round2 matchup" id="round2">
-            <h3>Round 2: Match 1</h3>
-            <span id="team1">Winner of Match 1</span>
-            <br>vs<br>
-            <span id="team2">Winner of Match 2</span>
+        <div class="round" id="round2">
+            <div class="matchup">
+                <span id="team1">Winner of Match 1</span>
+                <br>vs<br>
+                <span id="team2">Winner of Match 2</span>
+            </div>
+            <div class="matchup">
+                <span id="team3">Winner of Match 3</span>
+                <br>vs<br>
+                <span id="team4">Winner of Match 4</span>
+            </div>
+        </div>
+
+        <!-- Round 3 -->
+        <div class="round" id="round3">
+            <div class="matchup">
+                <span id="team5">Winner of Match 5</span>
+                <br>vs<br>
+                <span id="team6">Winner of Match 6</span>
+            </div>
+        </div>
+
+        <!-- Final -->
+        <div class="round" id="final">
+            <div class="matchup">
+                <span id="champion">Champion</span>
+            </div>
         </div>
     </div>
 
@@ -72,19 +119,35 @@
     </table>
 
     <script>
-        let results = [];
+        let roundWinners = {}; // Store winners by round
+        let matchCounter = 1;  // Counter to identify matches
 
-        function setWinner(roundId, winner, loser) {
-            // Update the round with the selected winner
+        function setWinner(roundId, winner) {
+            // Set the winner in the current match
             document.getElementById(roundId).innerText = winner;
 
-            // Push the result to the results table
-            results.push({
-                round: roundId,
-                winner: winner,
-                loser: loser
-            });
+            // Store the winner in the roundWinners object
+            roundWinners[roundId] = winner;
 
+            // Check if we should advance to the next round
+            if (roundId === 'team1' || roundId === 'team2') {
+                if (roundWinners['team1'] && roundWinners['team2']) {
+                    setWinner('team5', roundWinners['team1'] + ' vs ' + roundWinners['team2']);
+                }
+            }
+            if (roundId === 'team3' || roundId === 'team4') {
+                if (roundWinners['team3'] && roundWinners['team4']) {
+                    setWinner('team6', roundWinners['team3'] + ' vs ' + roundWinners['team4']);
+                }
+            }
+
+            if (roundId === 'team5' || roundId === 'team6') {
+                if (roundWinners['team5'] && roundWinners['team6']) {
+                    setWinner('champion', roundWinners['team5'] + ' vs ' + roundWinners['team6']);
+                }
+            }
+
+            // Update the results table
             updateResultsTable();
         }
 
@@ -92,12 +155,12 @@
             const tableBody = document.querySelector("#resultsTable tbody");
             tableBody.innerHTML = ''; // Clear previous entries
 
-            results.forEach((result, index) => {
+            Object.keys(roundWinners).forEach((roundId, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${Math.ceil((index + 1) / 2)}</td>
-                    <td>Match ${index + 1}</td>
-                    <td>${result.winner}</td>
+                    <td>Match ${matchCounter++}</td>
+                    <td>${roundWinners[roundId]}</td>
                 `;
                 tableBody.appendChild(row);
             });
