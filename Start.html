@@ -11,7 +11,7 @@
             color: white;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #c9c3c3, #ffe600); /* Dark grey to dark green gradient */
+            background: linear-gradient(135deg, #c9c3c3, #000000); /* Dark grey to dark green gradient */
         }
 
         .sidebar {
@@ -37,7 +37,7 @@
 
         .sidebar a:hover, .sidebar .submenu a:hover {
             background-color: #dadbdb; /* Lighter green on hover */
-            color: #d3c11c; /* Dark green text */
+            color: #000000; /* Dark green text */
         }
 
         .sidebar .close-btn {
@@ -74,7 +74,7 @@
 
         h1, h2 {
             text-align: center;
-            color: #ffcc33; /* Gold-yellow headings */
+            color: #000000; /* Gold-yellow headings */
         }
 
         p, ul {
@@ -90,7 +90,7 @@
 
         ul li {
             padding: 12px 20px;
-            background-color: #d3c11c; /* Dark green */
+            background-color: #000000; /* Dark green */
             margin-bottom: 8px;
             border-radius: 8px;
             transition: all 0.3s ease;
@@ -105,7 +105,7 @@
         }
 
         .highlight {
-            color: #ffcc33;
+            color: #000000;
             font-weight: bold;
         }
 
@@ -142,7 +142,7 @@
         }
 
         .roster h3 {
-            color: #ffcc33; /* Gold-yellow for roster headings */
+            color: #000000; /* Gold-yellow for roster headings */
         }
 
         .achievements {
@@ -150,7 +150,7 @@
         }
 
         .achievements h2 {
-            color: #ffcc33;
+            color: #000000;
             margin-bottom: 10px;
         }
 
@@ -169,7 +169,7 @@
         }
 
         .achievements th {
-            background-color: #d3c11c; /* Dark green */
+            background-color: #000000; /* Dark green */
             color: white; /* White text */
         }
 
@@ -213,7 +213,7 @@
         /* Submenu styling */
         .submenu {
             padding-left: 20px;
-            background-color: #d3c11c;
+            background-color: #000000;
         }
 
         .submenu a {
@@ -251,9 +251,12 @@
     <a href="Start.html">How Pros started</a>
     <a href="Predictions.html">Prediction Sheet</a>
     </div>
-    
+
     <p>Ever wondered how some Pros started out? Give it a watch as some have answered the media team/me this question!</p>
     <img src="images/What has been.mp4" alt="Vid">
+    <video width="1080" controls>
+        <source src="images/What has been.mp4" type="video/mp4">
+    </video>
 
     <script>
         function openSidebar() {
