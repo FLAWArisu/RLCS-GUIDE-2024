@@ -220,6 +220,10 @@
             font-size: 16px;
             color: #bbb;
         }
+        video {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+        }
     </style>
 </head>
 <body>
@@ -256,8 +260,7 @@
         <span id="open-sidebar" onclick="openSidebar()">☰ Menu</span>
         <div class="content-wrapper">
     <p>Ever wondered how some Pros started out? Give it a watch as some have answered the media team/me this question!</p>
-    <img src="images/What has been.mp4" alt="Vid">
-    <video width="1080" controls>
+    <video controls>
         <source src="images/What has been.mp4" type="video/mp4">
     </video>
         </div>
